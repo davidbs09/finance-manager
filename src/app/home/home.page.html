@@ -1,20 +1,81 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Finance Manager</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button aria-label="Filtrar">
+        <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
+      </ion-button>
+      <ion-button aria-label="Período">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="period" value="cycle">
+      <ion-segment-button value="cycle">
+        <ion-label>Ciclo</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="month">
+        <ion-label>Mês</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="custom">
+        <ion-label>Período</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="hero ion-padding">
+    <div class="greeting">
+      <div class="title">Bem-vindo</div>
+      <div class="subtitle">{{ periodLabel }}</div>
+    </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="chips">
+      <ion-chip color="medium">Offline</ion-chip>
+      <ion-chip color="medium">SQLite (em breve)</ion-chip>
+    </div>
   </div>
+
+  <ion-card class="kpi">
+    <ion-card-header>
+      <ion-card-title>Resumo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="kpi-grid">
+        <div class="kpi-item">
+          <div class="label">Recebido</div>
+          <div class="value success">R$ {{ totals.received.toFixed(2) }}</div>
+        </div>
+        <div class="kpi-item">
+          <div class="label">Gasto</div>
+          <div class="value danger">R$ {{ totals.spent.toFixed(2) }}</div>
+        </div>
+        <div class="kpi-item">
+          <div class="label">Saldo</div>
+          <div class="value">R$ {{ totals.balance.toFixed(2) }}</div>
+        </div>
+        <div class="kpi-item">
+          <div class="label">Limite diário</div>
+          <div class="value">R$ {{ totals.dailyLimit.toFixed(2) }}</div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Próximos passos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ul class="next">
+        <li>Conectar Configurações no SQLite</li>
+        <li>CRUD de lançamentos</li>
+        <li>Dashboard em tempo real + filtros</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,0 +1,28 @@
+diff --git a/node_modules/@stencil/core/internal/client/index.js b/node_modules/@stencil/core/internal/client/index.js
+index d030df7..3968af1 100644
+--- a/node_modules/@stencil/core/internal/client/index.js
++++ b/node_modules/@stencil/core/internal/client/index.js
+@@ -149,6 +149,7 @@ var setErrorHandler = (handler) => customError = handler;
+ // src/client/client-load-module.ts
+ var cmpModules = /* @__PURE__ */ new Map();
+ var MODULE_IMPORT_PREFIX = "./";
++var __stencilDynamicImport = /* @__PURE__ */ ((globalThis && globalThis.__stencilDynamicImport) || void 0);
+ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
+   const exportName = cmpMeta.$tagName$.replace(/-/g, "_");
+   const bundleId = cmpMeta.$lazyBundleId$;
+@@ -165,11 +166,10 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
+     return module[exportName];
+   }
+   /*!__STENCIL_STATIC_IMPORT_SWITCH__*/
+-  return import(
+-    /* @vite-ignore */
+-    /* webpackInclude: /\.entry\.js$/ */
+-    /* webpackExclude: /\.system\.entry\.js$/ */
+-    /* webpackMode: "lazy" */
++  if (!__stencilDynamicImport) {
++    __stencilDynamicImport = globalThis.__stencilDynamicImport = new Function("p", "return import(p)");
++  }
++  return __stencilDynamicImport(
+     `./${bundleId}.entry.js${BUILD5.hotModuleReplacement && hmrVersionId ? "?s-hmr=" + hmrVersionId : ""}`
+   ).then(
+     (importedModule) => {

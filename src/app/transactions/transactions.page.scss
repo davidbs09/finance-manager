@@ -1,0 +1,38 @@
+ion-item .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+ion-item .title {
+  font-weight: 600;
+}
+
+ion-item .meta {
+  margin-top: 4px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+ion-item .amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+ion-item .amount.income {
+  color: var(--fm-success);
+}
+
+ion-item .amount.expense {
+  color: var(--fm-danger);
+}
+
+.hint {
+  text-align: center;
+  opacity: 0.85;
+}
+
+.hint p {
+  margin: 6px 0 0;
+}

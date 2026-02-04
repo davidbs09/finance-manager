@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Configurações</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Salário</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="inset">
+        <ion-item>
+          <ion-label position="stacked">Valor</ion-label>
+          <ion-input type="number" inputmode="decimal" [(ngModel)]="salaryValue"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Dia do pagamento</ion-label>
+          <ion-select interface="popover" [(ngModel)]="paydayDay">
+            <ion-select-option *ngFor="let day of paydayDays" [value]="day">
+              {{ day }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Categorias</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label position="stacked">Uma por linha</ion-label>
+        <ion-textarea autoGrow="true" rows="6" [(ngModel)]="categoriesText"></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Dívidas (placeholder)</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label position="stacked">Tipos/contas (uma por linha)</ion-label>
+        <ion-textarea autoGrow="true" rows="4" [(ngModel)]="debtsText"></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="actions ion-padding">
+    <ion-button expand="block" (click)="onSaveClicked()">Salvar (mock)</ion-button>
+  </div>
+</ion-content>

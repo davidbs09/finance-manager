@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Lançamentos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onAddClicked()">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list inset="true">
+    <ion-item *ngFor="let item of items">
+      <ion-label>
+        <div class="row">
+          <div class="title">{{ item.title }}</div>
+          <div class="amount" [class.income]="item.kind === 'income'" [class.expense]="item.kind === 'expense'">
+            {{ item.kind === 'income' ? '+' : '-' }} R$ {{ item.amount.toFixed(2) }}
+          </div>
+        </div>
+        <div class="meta">
+          {{ item.category }} • {{ item.date | date: 'dd/MM/yyyy' }}
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="hint ion-padding">
+    <strong>Visual primeiro.</strong>
+    <p>Depois a gente liga isso no SQLite + filtros do dashboard.</p>
+  </div>
+</ion-content>
