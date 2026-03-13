@@ -1,7 +1,23 @@
 
 import { Component, OnInit } from '@angular/core';
 import { CategoriaService, Categoria } from '../services/categoria.service';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonButtons, IonList, IonIcon } from '@ionic/angular/standalone';
+import {  IonHeader, 
+          IonToolbar, 
+          IonTitle, 
+          IonContent, 
+          IonCard, 
+          IonCardHeader, 
+          IonCardTitle, 
+          IonCardContent, 
+          IonItem, 
+          IonLabel, 
+          IonInput, 
+          IonSelect, 
+          IonSelectOption, 
+          IonButton, 
+          IonButtons, 
+          IonList, 
+          IonIcon } from '@ionic/angular/standalone';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -12,8 +28,6 @@ import { addOutline } from 'ionicons/icons';
      templateUrl: './categories.page.html',
      styleUrls: ['./categories.page.scss'],
      imports: [
-          NgFor,
-          NgIf,
           FormsModule,
           IonHeader,
           IonToolbar,
@@ -22,16 +36,9 @@ import { addOutline } from 'ionicons/icons';
           IonCard,
           IonCardHeader,
           IonCardTitle,
-          IonCardContent,
-          IonItem,
-          IonLabel,
-          IonInput,
-          IonSelect,
-          IonSelectOption,
-          IonButton,
           IonButtons,
-          IonList,
-          IonIcon
+          IonButton,
+          IonIcon,
      ],
 })
 export class CategoriesPage implements OnInit {
