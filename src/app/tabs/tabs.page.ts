@@ -8,7 +8,7 @@ import {
   IonTabs,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { homeOutline, listOutline, settingsOutline } from 'ionicons/icons';
+import { homeOutline, listOutline, albumsOutline, settingsOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-tabs',
@@ -18,6 +18,6 @@ import { homeOutline, listOutline, settingsOutline } from 'ionicons/icons';
 })
 export class TabsPage {
   constructor() {
-    addIcons({ homeOutline, listOutline, settingsOutline });
+    addIcons({ homeOutline, listOutline, albumsOutline, settingsOutline });
   }
 }

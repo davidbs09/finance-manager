@@ -19,6 +19,10 @@ export const routes: Routes = [
         loadComponent: () => import('./settings/settings.page').then((m) => m.SettingsPage),
       },
       {
+        path: 'categories',
+        loadComponent: () => import('./categories/categories.page').then((m) => m.CategoriesPage),
+      },
+      {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full',

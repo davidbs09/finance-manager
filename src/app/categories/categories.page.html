@@ -1,0 +1,51 @@
+<ion-header translucent="true">
+     <ion-toolbar>
+          <ion-title slot="start">Categorias</ion-title>
+          <ion-buttons slot="end">
+               <ion-button class="add-btn" (click)="adicionarCategoria()">
+                    <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+               </ion-button>
+          </ion-buttons>
+     </ion-toolbar>
+</ion-header>
+
+<ion-content>
+     <ion-card>
+          <ion-card-header class="ion-title-header">
+               <!-- <ion-card-title>Nova Categoria</ion-card-title> -->
+               <ion-card-title class="title-categories">Nada por aqui ainda :(</ion-card-title>
+
+          </ion-card-header>
+          <!-- <ion-card-content>
+               <ion-item>
+                    <ion-label position="stacked">Nome</ion-label>
+                    <ion-input [(ngModel)]="novaCategoria.nome"></ion-input>
+               </ion-item>
+               <ion-item>
+                    <ion-label position="stacked">Tipo</ion-label>
+                    <ion-select [(ngModel)]="novaCategoria.tipo">
+                         <ion-select-option value="gasto">Gasto</ion-select-option>
+                         <ion-select-option value="ganho">Ganho</ion-select-option>
+                    </ion-select>
+               </ion-item>
+
+          </ion-card-content> -->
+     </ion-card>
+
+     <!-- <ion-card>
+          <ion-card-header>
+               <ion-card-title></ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+               <ion-list>
+                    <ion-item *ngFor="let cat of categorias">
+                         <ion-label>{{ cat.nome }} ({{ cat.tipo }})</ion-label>
+                         <ion-button color="danger" fill="clear" slot="end" *ngIf="cat.id !== undefined"
+                              (click)="removerCategoria(cat.id!)">
+                              Remover
+                         </ion-button>
+                    </ion-item>
+               </ion-list>
+          </ion-card-content>
+     </ion-card> -->
+</ion-content>
